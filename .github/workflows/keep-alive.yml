@@ -1,0 +1,22 @@
+name: Keep Render Awake
+
+on:
+  schedule:
+    # Every 10 minutes (GitHub Actions cron is in UTC)
+    - cron: '0/10 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render app
+        run: |
+          echo "Pinging https://purapaw.onrender.com/ at $(date)"
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 https://purapaw.onrender.com/)
+          echo "Response: HTTP $STATUS"
+          if [ "$STATUS" = "200" ]; then
+            echo "✅ Site is alive"
+          else
+            echo "⚠️ Site responded with $STATUS (may be waking up, will retry next cycle)"
+          fi
