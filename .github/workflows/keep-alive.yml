@@ -12,11 +12,15 @@ jobs:
     steps:
       - name: Ping Render app
         run: |
-          echo "Pinging https://purapaw.onrender.com/ at $(date)"
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 https://purapaw.onrender.com/)
-          echo "Response: HTTP $STATUS"
-          if [ "$STATUS" = "200" ]; then
-            echo "✅ Site is alive"
-          else
-            echo "⚠️ Site responded with $STATUS (may be waking up, will retry next cycle)"
-          fi
+          echo "=== Pinging at $(date) ==="
+          for URL in "https://show.sohappyclaw.com/" "https://purapaw.onrender.com/"; do
+            echo ""
+            echo "Pinging: $URL"
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 "$URL")
+            echo "Response: HTTP $STATUS"
+            if [ "$STATUS" = "200" ]; then
+              echo "✅ $URL is alive"
+            else
+              echo "⚠️ $URL responded with $STATUS (may be waking up, will retry next cycle)"
+            fi
+          done
