@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-  secret: 'purapaw-admin-secret-2024',
+  secret: process.env.SESSION_SECRET || 'purapaw-admin-secret-2024',
   resave: false,
   saveUninitialized: false,
   cookie: { maxAge: 1000 * 60 * 60 * 8 }
@@ -59,7 +59,7 @@ app.post('/submit-inquiry', function (req, res) {
 
 // ---- admin auth ----
 const ADMIN_USER = 'admin';
-const ADMIN_PASS_HASH = bcrypt.hashSync('admin123', 10); // default password
+const ADMIN_PASS_HASH = bcrypt.hashSync(process.env.ADMIN_PASSWORD || 'admin123', 10); // set ADMIN_PASSWORD env var in production
 
 app.get('/admin/login', function (req, res) {
   if (isAuth(req)) return res.redirect('/admin');

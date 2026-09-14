@@ -1,0 +1,16 @@
+# Render Blueprint - auto-configures the web service
+# When you connect this repo to Render, it detects this file and pre-fills all settings.
+services:
+  - type: web
+    name: purapaw
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_PASSWORD
+        sync: false  # set manually in Render dashboard after deploy
