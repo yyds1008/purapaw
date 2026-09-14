@@ -1,0 +1,299 @@
+{
+  "settings": {
+    "brandName": "PuraPaw",
+    "brandTagline": "Plant-Based Cat Litter Manufacturer",
+    "heroEyebrow": "Honest Factory  OEM  ODM",
+    "heroTitle": "Where honest plants begin.",
+    "heroLead": "A plant-based cat litter factory delivering full-chain solutions in formula, production, and quality. Every pellet is 100 percent biodegradable, flushable, and 21-step QC verified.",
+    "heroImg": "https://images.pexels.com/photos/32557420/pexels-photo-32557420.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "stat1Num": 12,
+    "stat1Lbl": "Years of manufacturing",
+    "stat2Num": 120000,
+    "stat2Lbl": "Tons per year",
+    "stat3Num": 60,
+    "stat3Lbl": "Global brands",
+    "stat4Num": 6,
+    "stat4Lbl": "Production lines",
+    "marquee": [
+      "100 percent Biodegradable",
+      "Flushable",
+      "OEM ODM",
+      "Global Logistics",
+      "21",
+      "Step QC",
+      "Fast Clumping",
+      "Low Dust",
+      "Eco and Natural"
+    ],
+    "contactEmail": "whatsapp@purapaw.com",
+    "contactPhone": "+86 138 0000 0000",
+    "contactAddress": "PuraPaw Industrial Park, Shandong, China",
+    "footerAbout": "PuraPaw is an honest plant-based cat litter factory serving 60 brands worldwide with end-to-end formula, production, QC, and private-label services.",
+    "aboutTitle": "A factory built on trust and plants.",
+    "aboutText": "From raw material sourcing to a 21-step quality process, every batch is traceable and tested. Our plant-based litter is engineered to be 30 percent faster at absorption and better at odor control, with four lines and 120K tons of annual capacity.",
+    "aboutStat": 21,
+    "aboutStatLbl": "Step QC process"
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Tofu Litter",
+      "badge": "Bestseller",
+      "imageUrl": "https://images.pexels.com/photos/18693415/pexels-photo-18693415.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "description": "Natural pea fiber. Fast clumping, super low dust, flushable in the toilet.",
+      "features": [
+        "Fast clumping",
+        "Low dust",
+        "Flushable",
+        "Natural pea"
+      ],
+      "sortOrder": 1,
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Corn Litter",
+      "badge": "Fast Clumping",
+      "imageUrl": "https://images.pexels.com/photos/11238585/pexels-photo-11238585.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "description": "5-second clumping, strong absorption, 95 percent odor control in 10 minutes.",
+      "features": [
+        "5-second clump",
+        "Strong odor control",
+        "High absorption",
+        "Eco and flushable"
+      ],
+      "sortOrder": 2,
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "name": "Cassava Litter",
+      "badge": "Premium",
+      "imageUrl": "https://images.pexels.com/photos/34464846/pexels-photo-34464846.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "description": "Heavy pellets with very low dust, available in 0.5 to 6mm. Neutral smell, fast clumping.",
+      "features": [
+        "Low dust",
+        "Neutral smell",
+        "Multi-spec",
+        "Eco and flushable"
+      ],
+      "sortOrder": 3,
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "name": "Bamboo Litter",
+      "badge": "Eco",
+      "imageUrl": "https://images.pexels.com/photos/116835/pexels-photo-116835.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "description": "Natural bamboo with built-in antimicrobial properties. Strong natural odor control.",
+      "features": [
+        "Natural odor control",
+        "Antimicrobial",
+        "Flushable and eco",
+        "Low dust",
+        "Lasting absorption"
+      ],
+      "sortOrder": 4,
+      "isActive": true
+    }
+  ],
+  "healthItems": [
+    {
+      "id": 1,
+      "icon": "flask",
+      "title": "pH Real-time Detection",
+      "description": "Visual pH shift warns of urinary risk. Dyes in the litter reveal abnormal pH within 30 seconds.",
+      "imageUrl": "https://images.pexels.com/photos/33585487/pexels-photo-33585487.jpeg?auto=compress&cs=tinysrgb&w=700"
+    },
+    {
+      "id": 2,
+      "icon": "droplet",
+      "title": "Blood Detection Pellets",
+      "description": "70 percent sensitivity for hematuria. Detects trace blood early so owners act fast."
+    },
+    {
+      "id": 3,
+      "icon": "chart",
+      "title": "Instant Color Read",
+      "description": "Within 30 seconds the pellet color reports status, giving owners clear simple decisions."
+    }
+  ],
+  "whyPoints": [
+    {
+      "id": 1,
+      "icon": "seedling",
+      "title": "Source Quality",
+      "description": "Direct raw material, proven formulas, flushable eco, on-site manufacturing, 12 categories of certification."
+    },
+    {
+      "id": 2,
+      "icon": "flask",
+      "title": "Innovative R&D",
+      "description": "In-house lab for absorption capacity, including pH detection, 30 percent above industry peers."
+    },
+    {
+      "id": 3,
+      "icon": "shield",
+      "title": "Transparent and Reliable",
+      "description": "End-to-end visible progress, product traceability, full lab testing reports on request."
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "icon": "flask",
+      "title": "Custom Formula",
+      "description": "Pellets, absorption, and surface tuned to your market. Adjust absorbency by 20 percent."
+    },
+    {
+      "id": 2,
+      "icon": "layer-group",
+      "title": "Pellet Customization",
+      "description": "0.5 to 6mm particle sizes available. Surface, absorption, and density adjustable by 20 percent."
+    },
+    {
+      "id": 3,
+      "icon": "spray-can",
+      "title": "Smell and Color",
+      "description": "Color customization with 30 plus natural plant options. Scent binding rate enhanced by 20 percent."
+    },
+    {
+      "id": 4,
+      "icon": "hand-holding-heart",
+      "title": "Mixed Formula",
+      "description": "Blend ratios that combine the strengths of multiple plant fibers per region."
+    },
+    {
+      "id": 5,
+      "icon": "heart-circle-pulse",
+      "title": "Health Monitoring",
+      "description": "pH and blood detection built-in, supporting condition alerts for end consumers."
+    },
+    {
+      "id": 6,
+      "icon": "box-open",
+      "title": "Packaging Custom",
+      "description": "7.5kg to 25kg bags, additive, window, handle, double options. Custom labels supported."
+    }
+  ],
+  "processSteps": [
+    {
+      "id": 1,
+      "step": 1,
+      "title": "Consultation",
+      "description": "Confirm product type, formula, and annual tonnage. Project scope sign-off in 1 day."
+    },
+    {
+      "id": 2,
+      "step": 2,
+      "title": "Custom Samples",
+      "description": "3-7 working days. Adjust size, color, and absorbency per your market."
+    },
+    {
+      "id": 3,
+      "step": 3,
+      "title": "Production QC",
+      "description": "Full-chain transparent manufacturing with 21-step quality check."
+    },
+    {
+      "id": 4,
+      "step": 4,
+      "title": "Global Shipping",
+      "description": "Container delivery, customs documents, multi-port fast clearance."
+    }
+  ],
+  "highlights": [
+    {
+      "id": 1,
+      "icon": "bolt",
+      "title": "5-Second Clump",
+      "description": "Engineered formula is fast at absorption and 20 percent stronger clumps."
+    },
+    {
+      "id": 2,
+      "icon": "wind",
+      "title": "Strong Odor Control",
+      "description": "Coconut shell carbon with odor removal in 10 minutes."
+    },
+    {
+      "id": 3,
+      "icon": "recycle",
+      "title": "Eco Flushable",
+      "description": "100 percent plant-based, dissolves in the toilet, zero plastic."
+    },
+    {
+      "id": 4,
+      "icon": "ban",
+      "title": "Anti-Mold",
+      "description": "Low moisture, stable storage, no mold risk in transit."
+    },
+    {
+      "id": 5,
+      "icon": "feather",
+      "title": "Low Dust",
+      "description": "Dust below 3 percent, kind to the respiratory tract."
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "author": "Sophie Martin",
+      "role": "Procurement, Pet Co.",
+      "company": "France",
+      "content": "From lab reports to delivery, the whole process felt honest. We locked our formula in one day.",
+      "rating": 5,
+      "avatarUrl": "https://images.pexels.com/photos/33585483/pexels-photo-33585483.jpeg?auto=compress&cs=tinysrgb&w=200"
+    },
+    {
+      "id": 2,
+      "author": "Li Wei",
+      "role": "Brand Owner",
+      "company": "Singapore",
+      "content": "The pH detection litter stood out. Customers are loyal to us because of the health alerts.",
+      "rating": 5,
+      "avatarUrl": "https://images.pexels.com/photos/39040811/pexels-photo-39040811.jpeg?auto=compress&cs=tinysrgb&w=200"
+    },
+    {
+      "id": 3,
+      "author": "David Brown",
+      "role": "Distributor",
+      "company": "USA",
+      "content": "Stable supply and zero delayed shipments in two years. Honestly the most reliable partner.",
+      "rating": 5,
+      "avatarUrl": "https://images.pexels.com/photos/13081375/pexels-photo-13081375.jpeg?auto=compress&cs=tinysrgb&w=200"
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": 1,
+      "category": "Industry Guide",
+      "imageUrl": "https://images.pexels.com/photos/6897077/pexels-photo-6897077.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "title": "How to identify high-quality plant-based cat litter",
+      "excerpt": "Material, absorbency, dust, and odor control. A simple 4-point quality method for buyers.",
+      "content": "Material is the core. A superior plant-based litter uses natural pea fiber, corn, or cassava. Second is absorbency rate. Third is dust rate, kept under 3 percent. Fourth is odor control rate; the 10-minute metric is a clear standard for buyers.",
+      "author": "PuraPaw Lab",
+      "publishDate": "2024-11-12"
+    },
+    {
+      "id": 2,
+      "category": "OEM Guide",
+      "imageUrl": "https://images.pexels.com/photos/38427501/pexels-photo-38427501.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "title": "Private label OEM for cat litter, a complete guide",
+      "excerpt": "From consultation to first shipment. Each step and timeline for brand owners.",
+      "content": "From consultation, to lab samples in 3 to 7 days, to bulk manufacturing with 21-step QC, then global shipping. Transparency the brand owner can trust.",
+      "author": "PuraPaw Team",
+      "publishDate": "2024-10-28"
+    },
+    {
+      "id": 3,
+      "category": "Product Knowledge",
+      "imageUrl": "https://images.pexels.com/photos/34718922/pexels-photo-34718922.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "title": "Cassava cat litter production process explained",
+      "excerpt": "How premium cassava cat litter is made, from harvest to pressing.",
+      "content": "A premium cat litter starts from raw cassava storage, to mechanical pressing, to physical screening, to quality check. No chemical additives.",
+      "author": "PuraPaw Eng",
+      "publishDate": "2024-09-15"
+    }
+  ],
+  "inquiries": []
+}

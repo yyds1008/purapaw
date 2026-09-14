@@ -1,0 +1,103 @@
+<%- include('_layout', {title:cfg.label, active:key, resources:resources, user:user}) %>
+<p style="color:#888;margin-bottom:8px"><%= cfg.label %> — <%= items.length %> item<%= items.length===1?'':'s' %><%= cfg.readOnly?' (read-only list of form submissions)':'' %>.</p>
+
+<% if (flash) { %><div class="flash"><i class="fa-solid fa-circle-check"></i> <%= flash %></div><% } %>
+
+<% if (cfg.readOnly) { %>
+<% if (items.length === 0) { %>
+<div style="background:#fff;border-radius:12px;padding:40px;text-align:center;color:#999;border:1px solid var(--line);margin-top:16px">
+<i class="fa-solid fa-inbox" style="font-size:34px;display:block;margin-bottom:12px"></i>
+No inquiries yet. Submissions from the public contact form will appear here.
+</div>
+<% } else { %>
+<table style="margin-top:16px">
+<thead><tr>
+<th>Date</th><th>Name</th><th>Email</th><th>Product</th><th>Tonnage</th><th>Message</th><th></th>
+</tr></thead>
+<tbody>
+<% items.slice().reverse().forEach(function(it){ %>
+<tr>
+<td class="muted"><%= (it.createdAt||'').slice(0,16).replace('T',' ') %></td>
+<td><b><%= it.name %></b></td>
+<td><%= it.email %></td>
+<td><%= it.product||'-' %></td>
+<td><%= it.tonnage||'-' %></td>
+<td style="max-width:300px"><%= (it.message||'').slice(0,120) %><%= (it.message||'').length>120?'…':'' %></td>
+<td>
+<form action="/admin/<%= key %>/<%= it.id %>/delete" method="POST" onsubmit="return confirm('Delete this inquiry?')">
+<button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+</form>
+</td>
+</tr>
+<% }) %>
+</tbody>
+</table>
+<% } %>
+
+<% } else { %>
+
+<div style="margin:18px 0 10px;display:flex;justify-content:flex-end">
+<button class="btn btn-primary btn-sm" onclick="document.getElementById('addForm').style.display='block';this.style.display='none'"><i class="fa-solid fa-plus"></i> Add New <%= cfg.singular %></button>
+</div>
+
+<div id="addForm" style="display:none">
+<form action="/admin/<%= key %>/create" method="POST" class="form-card">
+<h3><i class="fa-solid fa-circle-plus"></i> New <%= cfg.singular %></h3>
+<% cfg.fields.forEach(function(f){ %>
+<% if (f.type==='checkbox') { %>
+<div class="field"><label class="toggle"><input type="checkbox" name="<%= f.name %>"> <%= f.label %></label></div>
+<% } else if (f.type==='textarea') { %>
+<div class="field"><label><%= f.label %></label><textarea name="<%= f.name %>"></textarea></div>
+<% } else if (f.type==='list') { %>
+<div class="field"><label><%= f.label %></label><textarea name="<%= f.name %>" placeholder="one item per line"></textarea></div>
+<% } else if (f.type==='number') { %>
+<div class="field"><label><%= f.label %></label><input type="number" name="<%= f.name %>" value="0"></div>
+<% } else { %>
+<div class="field"><label><%= f.label %></label><input type="text" name="<%= f.name %>"></div>
+<% } %>
+<% }) %>
+<button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-check"></i> Create</button>
+</form>
+</div>
+
+<% if (items.length === 0) { %>
+<div style="background:#fff;border-radius:12px;padding:40px;text-align:center;color:#999;border:1px solid var(--line);margin-top:16px">
+<i class="fa-solid fa-inbox" style="font-size:34px;display:block;margin-bottom:12px"></i>
+No items yet. Click "Add New" to create one.
+</div>
+<% } else { %>
+<div style="margin-top:16px">
+<% items.forEach(function(it){ %>
+<details style="background:#fff;border-radius:12px;border:1px solid var(--line);margin-bottom:12px;box-shadow:0 8px 24px -16px rgba(74,44,90,.22)">
+<summary style="padding:16px 18px;cursor:pointer;font-family:'Poppins';font-weight:600;font-size:15px;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center">
+<span><i class="fa-solid fa-grip-vertical" style="color:#bbb;margin-right:8px"></i><%= it.name||it.title||it.author||('#'+it.id) %></span>
+<span style="display:flex;gap:8px;align-items:center">
+<% if (typeof it.isActive !== 'undefined') { %><span class="<%= it.isActive?'badge-on':'badge-off' %>"><%= it.isActive?'Active':'Hidden' %></span><% } %>
+<form action="/admin/<%= key %>/<%= it.id %>/delete" method="POST" onsubmit="return confirm('Delete this item?')"><button class="btn btn-danger btn-sm" onclick="event.stopImmediatePropagation()"><i class="fa-solid fa-trash"></i></button></form>
+</span>
+</summary>
+<form action="/admin/<%= key %>/<%= it.id %>/update" method="POST" class="form-card" style="margin-top:0;border:none;box-shadow:none">
+<% cfg.fields.forEach(function(f){ %>
+<% if (f.type==='checkbox') { %>
+<div class="field"><label class="toggle"><input type="checkbox" name="<%= f.name %>" <%= it[f.name]?'checked':'' %>> <%= f.label %></label></div>
+<% } else if (f.type==='textarea') { %>
+<div class="field"><label><%= f.label %></label><textarea name="<%= f.name %>"><%= it[f.name]||'' %></textarea></div>
+<% } else if (f.type==='list') { %>
+<div class="field"><label><%= f.label %></label><textarea name="<%= f.name %>"><%= (it[f.name]||[]).join('\n') %></textarea></div>
+<% } else if (f.type==='number') { %>
+<div class="field"><label><%= f.label %></label><input type="number" name="<%= f.name %>" value="<%= it[f.name] %>"></div>
+<% } else { %>
+<div class="field"><label><%= f.label %></label><input type="text" name="<%= f.name %>" value="<%= it[f.name]||'' %>"></div>
+<% } %>
+<% }) %>
+<button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+</form>
+</details>
+<% }) %>
+</div>
+<% } %>
+
+<% } %>
+
+</div></div>
+</body></html>

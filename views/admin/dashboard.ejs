@@ -1,0 +1,20 @@
+<%- include('_layout', {title:'Dashboard', active:'dashboard', resources:resources, user:user}) %>
+<p style="color:#888;margin-bottom:24px">Welcome back. Manage all content of your website from here.</p>
+
+<div class="cards">
+<div class="stat"><div class="ico"><i class="fa-solid fa-box"></i></div><div class="n"><%= d.products.length %></div><div class="l">Products</div></div>
+<div class="stat"><div class="ico"><i class="fa-solid fa-gears"></i></div><div class="n"><%= d.services.length %></div><div class="l">OEM Services</div></div>
+<div class="stat"><div class="ico"><i class="fa-solid fa-newspaper"></i></div><div class="n"><%= d.blogPosts.length %></div><div class="l">Blog Posts</div></div>
+<div class="stat"><div class="ico"><i class="fa-solid fa-envelope"></i></div><div class="n"><%= d.inquiries.length %></div><div class="l">Inquiries</div></div>
+</div>
+
+<h3 style="font-family:'Poppins';font-size:18px;color:var(--ink);margin-bottom:16px">Manage Content</h3>
+<div class="grid">
+<a href="/admin/settings" class="link-card"><div class="ico"><i class="fa-solid fa-gear"></i></div><h3>Site Settings</h3><p>Brand, hero, stats, contact</p></a>
+<% Object.keys(resources).forEach(function(key){ var c=resources[key]; var count=(d[key]||[]).length; %>
+<a href="/admin/<%= key %>" class="link-card"><div class="ico"><i class="fa-solid fa-table-list"></i></div><h3><%= c.label %></h3><p><%= count %> item<%= count===1?'':'s' %><%= c.readOnly?' · read only':'' %></p></a>
+<% }) %>
+</div>
+
+</div></div>
+</body></html>

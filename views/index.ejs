@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= d.settings.brandName %> - <%= d.settings.brandTagline %></title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<header id="header">
+<div class="wrap nav">
+<a href="#" class="logo"><span class="mark"><i class="fa-solid fa-paw"></i></span><%= d.settings.brandName %></a>
+<nav class="nav-links" id="navLinks">
+<a href="#products">Products</a>
+<a href="#health">Health Litter</a>
+<a href="#about">About</a>
+<a href="#oem">OEM</a>
+<a href="#process">Process</a>
+<a href="#blog">Blog</a>
+<a href="#contact">Contact</a>
+</nav>
+<div class="nav-cta">
+<% if (authed) { %>
+<a href="/admin" class="btn btn-ghost"><i class="fa-solid fa-gauge"></i> Admin</a>
+<% } else { %>
+<a href="/admin/login" class="btn btn-ghost"><i class="fa-solid fa-lock"></i> Admin</a>
+<% } %>
+<a href="#contact" class="btn btn-primary">Get Quote</a>
+<button class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></button>
+</div>
+</div>
+</header>
+
+<section class="hero" id="hero">
+<div class="hero-bg"></div>
+<div class="hero-blob b1"></div>
+<div class="hero-blob b2"></div>
+<span class="float-paw p1"><i class="fa-solid fa-paw"></i></span>
+<span class="float-paw p2"><i class="fa-solid fa-paw"></i></span>
+<div class="wrap hero-grid">
+<div class="hero-copy reveal">
+<span class="eyebrow"><i class="fa-solid fa-leaf"></i> <%= d.settings.heroEyebrow %></span>
+<h1><%= d.settings.heroTitle %></h1>
+<p class="hero-lead"><%= d.settings.heroLead %></p>
+<div class="hero-actions">
+<a href="#products" class="btn btn-light">Explore Products</a>
+<a href="#oem" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.5)">OEM Service</a>
+</div>
+<div class="hero-stats">
+<div class="hstat"><div class="num" data-target="<%= d.settings.stat1Num %>">0</div><div class="lbl"><%= d.settings.stat1Lbl %></div></div>
+<div class="hstat"><div class="num" data-target="<%= d.settings.stat2Num %>">0</div><div class="lbl"><%= d.settings.stat2Lbl %></div></div>
+<div class="hstat"><div class="num" data-target="<%= d.settings.stat3Num %>">0</div><div class="lbl"><%= d.settings.stat3Lbl %></div></div>
+<div class="hstat"><div class="num" data-target="<%= d.settings.stat4Num %>">0</div><div class="lbl"><%= d.settings.stat4Lbl %></div></div>
+</div>
+</div>
+<div class="hero-visual reveal">
+<div class="hero-card">
+<span class="tag"><i class="fa-solid fa-leaf"></i> Plant-Based</span>
+<img src="<%= d.settings.heroImg %>" alt="cat litter">
+</div>
+<div class="hero-badge">
+<div class="ico"><i class="fa-solid fa-flask"></i></div>
+<div><b>21-Step QC</b><span>Lab verified</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="marquee">
+<div class="marquee-track">
+<% d.settings._marquee.forEach(function(m){ %><span><i class="fa-solid fa-leaf"></i> <%= m %></span><% }) %>
+<% d.settings._marquee.forEach(function(m){ %><span><i class="fa-solid fa-leaf"></i> <%= m %></span><% }) %>
+</div>
+</div>
+
+<section class="section" id="products">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow"><i class="fa-solid fa-box"></i> Our Products</span>
+<h2>Plant-based litter for every market</h2>
+<p>Four core formulas, each 100 percent natural and flushable.</p>
+</div>
+<div class="products-grid">
+<% d.products.filter(function(p){return p.isActive;}).sort(function(a,b){return a.sortOrder-b.sortOrder;}).forEach(function(p){ %>
+<div class="product-card reveal">
+<div class="pimg">
+<% if(p.badge){ %><span class="pill"><%= p.badge %></span><% } %>
+<img src="<%= p.imageUrl %>" alt="<%= p.name %>">
+</div>
+<div class="pbody">
+<h3><%= p.name %></h3>
+<p style="font-size:14px;margin-bottom:14px"><%= p.description %></p>
+<ul><% (p.features||[]).forEach(function(f){ %><li><%= f %></li><% }) %></ul>
+<a href="#contact" class="product-link">Get a quote <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+<% }) %>
+</div>
+</div>
+</section>
+
+<section class="section health" id="health">
+<div class="wrap health-grid">
+<div class="health-visual reveal">
+<img src="https://images.pexels.com/photos/33585487/pexels-photo-33585487.jpeg?auto=compress&cs=tinysrgb&w=800" alt="health monitoring cat litter">
+<div class="ring">pH<br>Detect</div>
+</div>
+<div class="health-copy reveal">
+<span class="eyebrow"><i class="fa-solid fa-heart-pulse"></i> Innovation</span>
+<h2>Health-monitoring cat litter</h2>
+<p>Beyond cleaning. Our R&D embeds detection into pellets, turning litter into a pet health sensor.</p>
+<div class="health-list">
+<% d.healthItems.forEach(function(h){ %>
+<div class="health-item">
+<div class="hi-ico"><i class="fa-solid fa-<%= h.icon %>"></i></div>
+<div><b><%= h.title %></b><br><span><%= h.description %></span></div>
+</div>
+<% }) %>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section about" id="about">
+<div class="wrap about-grid">
+<div class="about-imgs reveal">
+<img class="main" src="https://images.pexels.com/photos/7178310/pexels-photo-7178310.jpeg?auto=compress&cs=tinysrgb&w=800" alt="cat litter factory">
+<img class="sub" src="https://images.pexels.com/photos/38427501/pexels-photo-38427501.jpeg?auto=compress&cs=tinysrgb&w=600" alt="factory production line detail">
+<div class="about-stats"><div class="n"><%= d.settings.aboutStat %></div><div class="t"><%= d.settings.aboutStatLbl %></div></div>
+</div>
+<div class="about-copy reveal">
+<span class="eyebrow"><i class="fa-solid fa-leaf"></i> About Us</span>
+<h2><%= d.settings.aboutTitle %></h2>
+<p><%= d.settings.aboutText %></p>
+<div class="why-grid">
+<% d.whyPoints.forEach(function(w){ %>
+<div class="why-card">
+<div class="wi-ico"><i class="fa-solid fa-<%= w.icon %>"></i></div>
+<div><h4><%= w.title %></h4><p><%= w.description %></p></div>
+</div>
+<% }) %>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section oem" id="oem">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow"><i class="fa-solid fa-gears"></i> OEM / ODM</span>
+<h2>Full custom private-label service</h2>
+<p>From formula to packaging, tailored to your brand and market.</p>
+</div>
+<div class="oem-grid">
+<% d.services.forEach(function(s){ %>
+<div class="oem-card reveal">
+<div class="ico"><i class="fa-solid fa-<%= s.icon %>"></i></div>
+<h3><%= s.title %></h3>
+<p><%= s.description %></p>
+</div>
+<% }) %>
+</div>
+</div>
+</section>
+
+<section class="section process" id="process">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow"><i class="fa-solid fa-route"></i> Cooperation</span>
+<h2>From inquiry to delivery in 4 steps</h2>
+<p>Transparent, traceable, fast.</p>
+</div>
+<div class="process-grid">
+<% d.processSteps.forEach(function(st){ %>
+<div class="step reveal">
+<div class="num"><%= st.step %></div>
+<h4><%= st.title %></h4>
+<p><%= st.description %></p>
+</div>
+<% }) %>
+</div>
+</div>
+</section>
+
+<section class="section feature" id="feature">
+<div class="wrap feature-grid">
+<div class="feature-visual reveal">
+<img src="https://images.pexels.com/photos/39354385/pexels-photo-39354385.jpeg?auto=compress&cs=tinysrgb&w=800" alt="corn cat litter detail">
+<div class="price-tag"><i class="fa-solid fa-award"></i><div><b>Corn Litter</b><span>Best clumping</span></div></div>
+</div>
+<div class="feature-copy reveal">
+<span class="eyebrow"><i class="fa-solid fa-star"></i> Featured</span>
+<h2>Why our corn litter wins</h2>
+<p>Six reasons customers stay loyal.</p>
+<div class="feat-list">
+<% d.highlights.forEach(function(h){ %>
+<div class="feat-item">
+<div class="fi-ico"><i class="fa-solid fa-<%= h.icon %>"></i></div>
+<div><b><%= h.title %></b><span><%= h.description %></span></div>
+</div>
+<% }) %>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section testi" id="testi">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow"><i class="fa-solid fa-quote-left"></i> Testimonials</span>
+<h2>Brands that trust us</h2>
+</div>
+<div class="testi-grid">
+<% d.testimonials.forEach(function(t){ %>
+<div class="testi-card reveal">
+<div class="quote">"</div>
+<div class="stars"><% for(var i=0;i<(t.rating||5);i++){ %><i class="fa-solid fa-star"></i><% } %></div>
+<p><%= t.content %></p>
+<div class="testi-person">
+<img class="av" src="<%= t.avatarUrl %>" alt="<%= t.author %>">
+<div><b><%= t.author %></b><br><span><%= t.role %> · <%= t.company %></span></div>
+</div>
+</div>
+<% }) %>
+</div>
+</div>
+</section>
+
+<section class="section blog" id="blog">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow"><i class="fa-solid fa-newspaper"></i> Blog</span>
+<h2>Guides and industry insight</h2>
+</div>
+<div class="blog-grid">
+<% d.blogPosts.forEach(function(b){ %>
+<div class="blog-card reveal">
+<div class="bimg"><img src="<%= b.imageUrl %>" alt="<%= b.title %>"></div>
+<div class="bbody">
+<div class="meta"><i class="fa-solid fa-tag"></i> <%= b.category %> <span>·</span> <i class="fa-regular fa-calendar"></i> <%= b.publishDate %></div>
+<h3><%= b.title %></h3>
+<p><%= b.excerpt %></p>
+<a href="#contact" class="rmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+<% }) %>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="wrap">
+<div class="cta-box reveal">
+<h2>Ready to build your brand?</h2>
+<p>Tell us your market and tonnage. Get lab samples in 3-7 days.</p>
+<div class="cta-actions">
+<a href="#contact" class="btn btn-primary">Get Free Quote</a>
+<a href="mailto:<%= d.settings.contactEmail %>" class="btn btn-light">Email Us</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section contact" id="contact">
+<div class="wrap contact-grid">
+<div class="contact-info reveal">
+<span class="eyebrow"><i class="fa-solid fa-envelope"></i> Contact</span>
+<h2>Let's talk about your project</h2>
+<p>Submit the form and our team replies within 24 hours.</p>
+<div class="ci-item"><div class="ico"><i class="fa-solid fa-envelope"></i></div><div><b>Email</b><br><span><%= d.settings.contactEmail %></span></div></div>
+<div class="ci-item"><div class="ico"><i class="fa-solid fa-phone"></i></div><div><b>Phone / WhatsApp</b><br><span><%= d.settings.contactPhone %></span></div></div>
+<div class="ci-item"><div class="ico"><i class="fa-solid fa-location-dot"></i></div><div><b>Address</b><br><span><%= d.settings.contactAddress %></span></div></div>
+</div>
+<form class="form reveal" action="/submit-inquiry" method="POST">
+<% if (flash) { %>
+<div style="background:#F0E6F5;color:#4A2C5A;padding:14px 18px;border-radius:12px;margin-bottom:16px;font-weight:600"><i class="fa-solid fa-circle-check"></i> <%= flash %></div>
+<% } %>
+<div class="form-row">
+<div class="field"><label>Your Name</label><input type="text" name="name" required></div>
+<div class="field"><label>Email</label><input type="email" name="email" required></div>
+</div>
+<div class="form-row">
+<div class="field"><label>Product</label><input type="text" name="product" placeholder="Tofu / Corn / Cassava / Bamboo"></div>
+<div class="field"><label>Tonnage / year</label><input type="text" name="tonnage" placeholder="e.g. 500 tons"></div>
+</div>
+<div class="field"><label>Message</label><textarea name="message" placeholder="Tell us your market, needs, timeline..."></textarea></div>
+<button type="submit" class="btn btn-primary">Send Inquiry <i class="fa-solid fa-paper-plane"></i></button>
+</form>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<div class="foot-grid">
+<div class="foot-brand">
+<div class="logo"><span class="mark"><i class="fa-solid fa-paw"></i></span><%= d.settings.brandName %></div>
+<p><%= d.settings.footerAbout %></p>
+<div class="foot-social">
+<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="#"><i class="fa-brands fa-youtube"></i></a>
+</div>
+</div>
+<div class="foot-col"><h5>Products</h5><ul><% d.products.forEach(function(p){ %><li><a href="#products"><%= p.name %></a></li><% }) %></ul></div>
+<div class="foot-col"><h5>Company</h5><ul><li><a href="#about">About</a></li><li><a href="#oem">OEM Service</a></li><li><a href="#process">Process</a></li><li><a href="#blog">Blog</a></li></ul></div>
+<div class="foot-col"><h5>Resources</h5><ul><li><a href="#health">Health Litter</a></li><li><a href="#contact">Get Quote</a></li><li><a href="/admin/login">Admin Login</a></li></ul></div>
+</div>
+<div class="foot-bottom"><span>© 2024 <%= d.settings.brandName %>. All rights reserved.</span><a href="#hero">Back to top ↑</a></div>
+</div>
+</footer>
+
+<button class="to-top" id="toTop"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="/js/site.js"></script>
+</body>
+</html>
