@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9B6BB4"/>
+      <stop offset="100%" stop-color="#4A2C5A"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <!-- Cat paw print -->
+  <g fill="#F4C430">
+    <!-- Main pad (heart-like shape) -->
+    <path d="M32 28c-4 0-7 3-9 6.5C21 38 19 42 19 46c0 4 3 7 7 7 2.5 0 4-1 6-1s3.5 1 6 1c4 0 7-3 7-7 0-4-2-8-4-11.5C39 31 36 28 32 28z"/>
+    <!-- Toe beans: 4 small ellipses -->
+    <ellipse cx="22" cy="26" rx="4" ry="5"/>
+    <ellipse cx="32" cy="22" rx="4" ry="5"/>
+    <ellipse cx="42" cy="26" rx="4" ry="5"/>
+    <ellipse cx="48" cy="34" rx="3.5" ry="4.5"/>
+    <ellipse cx="16" cy="34" rx="3.5" ry="4.5"/>
+  </g>
+  <!-- Small leaf accent (plant-based) -->
+  <g fill="#7EC850" opacity="0.9">
+    <path d="M44 12c-3 2-5 5-4 9 0 1 1 1 1 0 1-3 3-5 6-6 1 0 1-1 0-1-1-1-2-2-3-2z"/>
+  </g>
+</svg>
