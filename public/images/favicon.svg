@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0%" stop-color="#9B6BB4"/>
-      <stop offset="100%" stop-color="#4A2C5A"/>
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1B3A5C"/>
     </linearGradient>
   </defs>
   <!-- Rounded square background -->
   <rect width="64" height="64" rx="14" fill="url(#bg)"/>
 
-  <!-- Large cat paw print - fills most of the icon -->
-  <g fill="#F4C430">
+  <!-- Large cat paw print - gold -->
+  <g fill="#C5930C">
     <!-- Main pad (big rounded shape) -->
     <ellipse cx="32" cy="40" rx="13" ry="11"/>
     <!-- Toe beans: 4 large ellipses across the top -->
