@@ -19,13 +19,9 @@
 <div class="wrap nav">
 <a href="#" class="logo"><span class="mark"><i class="fa-solid fa-paw"></i></span><%= d.settings.brandName %></a>
 <nav class="nav-links" id="navLinks">
-<a href="#products">Products</a>
-<a href="#health">Health Litter</a>
-<a href="#about">About</a>
-<a href="#oem">OEM</a>
-<a href="#process">Process</a>
-<a href="#blog">Blog</a>
-<a href="#contact">Contact</a>
+<% (d.settings.navItems || []).forEach(function(n){ %>
+<a href="<%= n.anchor %>"><%= n.label %></a>
+<% }) %>
 </nav>
 <div class="nav-cta">
 <% if (authed) { %>
@@ -51,18 +47,18 @@
 <h1><%= d.settings.heroTitle %></h1>
 <p class="hero-lead"><%= d.settings.heroLead %></p>
 <div class="hero-actions">
-<a href="#products" class="btn btn-light">Explore Products</a>
-<a href="#oem" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.5)">OEM Service</a>
+<a href="#products" class="btn btn-light"><%= d.settings.heroExploreBtn %></a>
+<a href="#oem" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.5)"><%= d.settings.heroOemBtn %></a>
 </div>
 </div>
 <div class="hero-visual reveal">
 <div class="hero-card">
-<span class="tag"><i class="fa-solid fa-leaf"></i> Plant-Based</span>
+<span class="tag"><i class="fa-solid fa-leaf"></i> <%= d.settings.heroPlantBasedTag %></span>
 <img src="<%= d.settings.heroImg %>" alt="cat litter">
 </div>
 <div class="hero-badge">
 <div class="ico"><i class="fa-solid fa-flask"></i></div>
-<div><b>21-Step QC</b><span>Lab verified</span></div>
+<div><b><%= d.settings.heroBadgeTitle %></b><span><%= d.settings.heroBadgeSub %></span></div>
 </div>
 </div>
 </div>
@@ -78,9 +74,9 @@
 <section class="section" id="products">
 <div class="wrap">
 <div class="section-head reveal">
-<span class="eyebrow"><i class="fa-solid fa-box"></i> Our Products</span>
-<h2>Plant-based litter for every market</h2>
-<p>Four core formulas, each 100 percent natural and flushable.</p>
+<span class="eyebrow"><i class="fa-solid fa-box"></i> <%= d.settings.productsEyebrow %></span>
+<h2><%= d.settings.productsTitle %></h2>
+<p><%= d.settings.productsSubtitle %></p>
 </div>
 <div class="products-grid">
 <% d.products.filter(function(p){return p.isActive;}).sort(function(a,b){return a.sortOrder-b.sortOrder;}).forEach(function(p){ %>
@@ -105,12 +101,12 @@
 <div class="wrap health-grid">
 <div class="health-visual reveal">
 <img src="https://images.pexels.com/photos/33585487/pexels-photo-33585487.jpeg?auto=compress&cs=tinysrgb&w=800" alt="health monitoring cat litter">
-<div class="ring">pH<br>Detect</div>
+<div class="ring"><%= d.settings.healthRingText %></div>
 </div>
 <div class="health-copy reveal">
-<span class="eyebrow"><i class="fa-solid fa-heart-pulse"></i> Innovation</span>
-<h2>Health-monitoring cat litter</h2>
-<p>Beyond cleaning. Our R&D embeds detection into pellets, turning litter into a pet health sensor.</p>
+<span class="eyebrow"><i class="fa-solid fa-heart-pulse"></i> <%= d.settings.healthEyebrow %></span>
+<h2><%= d.settings.healthTitle %></h2>
+<p><%= d.settings.healthSubtitle %></p>
 <div class="health-list">
 <% d.healthItems.forEach(function(h){ %>
 <div class="health-item">
@@ -126,12 +122,12 @@
 <section class="section about" id="about">
 <div class="wrap about-grid">
 <div class="about-imgs reveal">
-<img class="main" src="https://images.pexels.com/photos/7178310/pexels-photo-7178310.jpeg?auto=compress&cs=tinysrgb&w=800" alt="cat litter factory">
-<img class="sub" src="https://images.pexels.com/photos/38427501/pexels-photo-38427501.jpeg?auto=compress&cs=tinysrgb&w=600" alt="factory production line detail">
+<img class="main" src="<%= d.settings.aboutMainImg %>" alt="cat litter factory">
+<img class="sub" src="<%= d.settings.aboutSubImg %>" alt="factory production line detail">
 <div class="about-stats"><div class="n"><%= d.settings.aboutStat %></div><div class="t"><%= d.settings.aboutStatLbl %></div></div>
 </div>
 <div class="about-copy reveal">
-<span class="eyebrow"><i class="fa-solid fa-leaf"></i> About Us</span>
+<span class="eyebrow"><i class="fa-solid fa-leaf"></i> <%= d.settings.aboutEyebrow %></span>
 <h2><%= d.settings.aboutTitle %></h2>
 <p><%= d.settings.aboutText %></p>
 <div class="why-grid">
@@ -149,9 +145,9 @@
 <section class="section oem" id="oem">
 <div class="wrap">
 <div class="section-head reveal">
-<span class="eyebrow"><i class="fa-solid fa-gears"></i> OEM / ODM</span>
-<h2>Full custom private-label service</h2>
-<p>From formula to packaging, tailored to your brand and market.</p>
+<span class="eyebrow"><i class="fa-solid fa-gears"></i> <%= d.settings.oemEyebrow %></span>
+<h2><%= d.settings.oemTitle %></h2>
+<p><%= d.settings.oemSubtitle %></p>
 </div>
 <div class="oem-grid">
 <% d.services.forEach(function(s){ %>
@@ -168,9 +164,9 @@
 <section class="section process" id="process">
 <div class="wrap">
 <div class="section-head reveal">
-<span class="eyebrow"><i class="fa-solid fa-route"></i> Cooperation</span>
-<h2>From inquiry to delivery in 4 steps</h2>
-<p>Transparent, traceable, fast.</p>
+<span class="eyebrow"><i class="fa-solid fa-route"></i> <%= d.settings.processEyebrow %></span>
+<h2><%= d.settings.processTitle %></h2>
+<p><%= d.settings.processSubtitle %></p>
 </div>
 <div class="process-grid">
 <% d.processSteps.forEach(function(st){ %>
@@ -187,13 +183,13 @@
 <section class="section feature" id="feature">
 <div class="wrap feature-grid">
 <div class="feature-visual reveal">
-<img src="https://images.pexels.com/photos/39354385/pexels-photo-39354385.jpeg?auto=compress&cs=tinysrgb&w=800" alt="corn cat litter detail">
-<div class="price-tag"><i class="fa-solid fa-award"></i><div><b>Corn Litter</b><span>Best clumping</span></div></div>
+<img src="<%= d.settings.featureImg %>" alt="<%= d.settings.featureLabel %> detail">
+<div class="price-tag"><i class="fa-solid fa-award"></i><div><b><%= d.settings.featureLabel %></b><span><%= d.settings.featureTag %></span></div></div>
 </div>
 <div class="feature-copy reveal">
-<span class="eyebrow"><i class="fa-solid fa-star"></i> Featured</span>
-<h2>Why our corn litter wins</h2>
-<p>Six reasons customers stay loyal.</p>
+<span class="eyebrow"><i class="fa-solid fa-star"></i> <%= d.settings.featureEyebrow %></span>
+<h2><%= d.settings.featureTitle %></h2>
+<p><%= d.settings.featureSubtitle %></p>
 <div class="feat-list">
 <% d.highlights.forEach(function(h){ %>
 <div class="feat-item">
@@ -209,8 +205,8 @@
 <section class="section testi" id="testi">
 <div class="wrap">
 <div class="section-head reveal">
-<span class="eyebrow"><i class="fa-solid fa-quote-left"></i> Testimonials</span>
-<h2>Brands that trust us</h2>
+<span class="eyebrow"><i class="fa-solid fa-quote-left"></i> <%= d.settings.testiEyebrow %></span>
+<h2><%= d.settings.testiTitle %></h2>
 </div>
 <div class="testi-grid">
 <% d.testimonials.forEach(function(t){ %>
@@ -231,8 +227,8 @@
 <section class="section blog" id="blog">
 <div class="wrap">
 <div class="section-head reveal">
-<span class="eyebrow"><i class="fa-solid fa-newspaper"></i> Blog</span>
-<h2>Guides and industry insight</h2>
+<span class="eyebrow"><i class="fa-solid fa-newspaper"></i> <%= d.settings.blogEyebrow %></span>
+<h2><%= d.settings.blogTitle %></h2>
 </div>
 <div class="blog-grid">
 <% d.blogPosts.forEach(function(b){ %>
@@ -253,11 +249,11 @@
 <section class="cta">
 <div class="wrap">
 <div class="cta-box reveal">
-<h2>Ready to build your brand?</h2>
-<p>Tell us your market and tonnage. Get lab samples in 3-7 days.</p>
+<h2><%= d.settings.ctaTitle %></h2>
+<p><%= d.settings.ctaSubtitle %></p>
 <div class="cta-actions">
-<a href="#contact" class="btn btn-primary">Get Free Quote</a>
-<a href="mailto:<%= d.settings.contactEmail %>" class="btn btn-light">Email Us</a>
+<a href="#contact" class="btn btn-primary"><%= d.settings.ctaPrimaryBtn %></a>
+<a href="mailto:<%= d.settings.contactEmail %>" class="btn btn-light"><%= d.settings.ctaSecondaryBtn %></a>
 </div>
 </div>
 </div>
@@ -266,9 +262,9 @@
 <section class="section contact" id="contact">
 <div class="wrap contact-grid">
 <div class="contact-info reveal">
-<span class="eyebrow"><i class="fa-solid fa-envelope"></i> Contact</span>
-<h2>Let's talk about your project</h2>
-<p>Submit the form and our team replies within 24 hours.</p>
+<span class="eyebrow"><i class="fa-solid fa-envelope"></i> <%= d.settings.contactEyebrow %></span>
+<h2><%= d.settings.contactTitle %></h2>
+<p><%= d.settings.contactSubtitle %></p>
 <div class="ci-item"><div class="ico"><i class="fa-solid fa-envelope"></i></div><div><b>Email</b><br><span><%= d.settings.contactEmail %></span></div></div>
 <div class="ci-item"><div class="ico"><i class="fa-solid fa-phone"></i></div><div><b>Phone / WhatsApp</b><br><span><%= d.settings.contactPhone %></span></div></div>
 <div class="ci-item"><div class="ico"><i class="fa-solid fa-location-dot"></i></div><div><b>Address</b><br><span><%= d.settings.contactAddress %></span></div></div>
@@ -298,17 +294,17 @@
 <div class="logo"><span class="mark"><i class="fa-solid fa-paw"></i></span><%= d.settings.brandName %></div>
 <p><%= d.settings.footerAbout %></p>
 <div class="foot-social">
-<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-<a href="#"><i class="fa-brands fa-instagram"></i></a>
-<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-<a href="#"><i class="fa-brands fa-youtube"></i></a>
+<a href="<%= d.settings.socialLinks.facebook %>"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="<%= d.settings.socialLinks.instagram %>"><i class="fa-brands fa-instagram"></i></a>
+<a href="<%= d.settings.socialLinks.linkedin %>"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="<%= d.settings.socialLinks.youtube %>"><i class="fa-brands fa-youtube"></i></a>
 </div>
 </div>
-<div class="foot-col"><h5>Products</h5><ul><% d.products.forEach(function(p){ %><li><a href="#products"><%= p.name %></a></li><% }) %></ul></div>
+<div class="foot-col"><h5>Products</h5><ul><% (d.settings.footerNav || d.products).forEach(function(p){ %><li><a href="<%= p.anchor || '#products' %>"><%= p.label || p.name %></a></li><% }) %></ul></div>
 <div class="foot-col"><h5>Company</h5><ul><li><a href="#about">About</a></li><li><a href="#oem">OEM Service</a></li><li><a href="#process">Process</a></li><li><a href="#blog">Blog</a></li></ul></div>
 <div class="foot-col"><h5>Resources</h5><ul><li><a href="#health">Health Litter</a></li><li><a href="#contact">Get Quote</a></li><li><a href="/admin/login">Admin Login</a></li></ul></div>
 </div>
-<div class="foot-bottom"><span>© 2024 <%= d.settings.brandName %>. All rights reserved.</span><a href="#hero">Back to top ↑</a></div>
+<div class="foot-bottom"><span>© <%= d.settings.copyrightYear %> <%= d.settings.brandName %>. All rights reserved.</span><a href="#hero"><%= d.settings.footerBackTop %></a></div>
 </div>
 </footer>
 

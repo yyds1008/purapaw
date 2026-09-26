@@ -2,10 +2,18 @@
   "settings": {
     "brandName": "PuraPaw",
     "brandTagline": "Plant-Based Cat Litter Manufacturer",
+
     "heroEyebrow": "Honest Factory  OEM  ODM",
     "heroTitle": "Where honest plants begin.",
     "heroLead": "A plant-based cat litter factory delivering full-chain solutions in formula, production, and quality. Every pellet is 100 percent biodegradable, flushable, and 21-step QC verified.",
     "heroImg": "https://images.pexels.com/photos/32557420/pexels-photo-32557420.jpeg?auto=compress&cs=tinysrgb&w=800",
+
+    "heroExploreBtn": "Explore Products",
+    "heroOemBtn": "OEM Service",
+    "heroPlantBasedTag": "Plant-Based",
+    "heroBadgeTitle": "21-Step QC",
+    "heroBadgeSub": "Lab verified",
+
     "stat1Num": 12,
     "stat1Lbl": "Years of manufacturing",
     "stat2Num": 120000,
@@ -14,6 +22,7 @@
     "stat3Lbl": "Global brands",
     "stat4Num": 6,
     "stat4Lbl": "Production lines",
+
     "marquee": [
       "100 percent Biodegradable",
       "Flushable",
@@ -25,15 +34,87 @@
       "Low Dust",
       "Eco and Natural"
     ],
-    "contactEmail": "whatsapp@purapaw.com",
-    "contactPhone": "+86 138 0000 0000",
-    "contactAddress": "PuraPaw Industrial Park, Shandong, China",
-    "footerAbout": "PuraPaw is an honest plant-based cat litter factory serving 60 brands worldwide with end-to-end formula, production, QC, and private-label services.",
+
+    "productsEyebrow": "Our Products",
+    "productsTitle": "Plant-based litter for every market",
+    "productsSubtitle": "Four core formulas, each 100 percent natural and flushable.",
+
+    "healthEyebrow": "Innovation",
+    "healthTitle": "Health-monitoring cat litter",
+    "healthSubtitle": "Beyond cleaning. Our R&D embeds detection into pellets, turning litter into a pet health sensor.",
+    "healthRingText": "pH\nDetect",
+
+    "aboutEyebrow": "About Us",
     "aboutTitle": "A factory built on trust and plants.",
     "aboutText": "From raw material sourcing to a 21-step quality process, every batch is traceable and tested. Our plant-based litter is engineered to be 30 percent faster at absorption and better at odor control, with four lines and 120K tons of annual capacity.",
     "aboutStat": 21,
-    "aboutStatLbl": "Step QC process"
+    "aboutStatLbl": "Step QC process",
+    "aboutMainImg": "https://images.pexels.com/photos/7178310/pexels-photo-7178310.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "aboutSubImg": "https://images.pexels.com/photos/38427501/pexels-photo-38427501.jpeg?auto=compress&cs=tinysrgb&w=600",
+
+    "oemEyebrow": "OEM / ODM",
+    "oemTitle": "Full custom private-label service",
+    "oemSubtitle": "From formula to packaging, tailored to your brand and market.",
+
+    "processEyebrow": "Cooperation",
+    "processTitle": "From inquiry to delivery in 4 steps",
+    "processSubtitle": "Transparent, traceable, fast.",
+
+    "featureEyebrow": "Featured",
+    "featureTitle": "Why our corn litter wins",
+    "featureSubtitle": "Six reasons customers stay loyal.",
+    "featureLabel": "Corn Litter",
+    "featureTag": "Best clumping",
+    "featureImg": "https://images.pexels.com/photos/39354385/pexels-photo-39354385.jpeg?auto=compress&cs=tinysrgb&w=800",
+
+    "testiEyebrow": "Testimonials",
+    "testiTitle": "Brands that trust us",
+
+    "blogEyebrow": "Blog",
+    "blogTitle": "Guides and industry insight",
+
+    "ctaTitle": "Ready to build your brand?",
+    "ctaSubtitle": "Tell us your market and tonnage. Get lab samples in 3-7 days.",
+    "ctaPrimaryBtn": "Get Free Quote",
+    "ctaSecondaryBtn": "Email Us",
+
+    "contactEyebrow": "Contact",
+    "contactTitle": "Let's talk about your project",
+    "contactSubtitle": "Submit the form and our team replies within 24 hours.",
+
+    "contactEmail": "whatsapp@purapaw.com",
+    "contactPhone": "+86 138 0000 0000",
+    "contactAddress": "PuraPaw Industrial Park, Shandong, China",
+
+    "footerAbout": "PuraPaw is an honest plant-based cat litter factory serving 60 brands worldwide with end-to-end formula, production, QC, and private-label services.",
+    "copyrightYear": "2024",
+    "footerBackTop": "Back to top ↑",
+
+    "navItems": [
+      { "label": "Products", "anchor": "#products" },
+      { "label": "Health Litter", "anchor": "#health" },
+      { "label": "About", "anchor": "#about" },
+      { "label": "OEM", "anchor": "#oem" },
+      { "label": "Process", "anchor": "#process" },
+      { "label": "Blog", "anchor": "#blog" },
+      { "label": "Contact", "anchor": "#contact" }
+    ],
+
+    "footerNav": [
+      { "label": "Tofu Litter", "anchor": "#products" },
+      { "label": "Corn Litter", "anchor": "#products" },
+      { "label": "Cassava Litter", "anchor": "#products" },
+      { "label": "Bamboo Litter", "anchor": "#products" }
+    ],
+
+    "socialLinks": {
+      "facebook": "#",
+      "instagram": "#",
+      "linkedin": "#",
+      "youtube": "#"
+    }
   },
+
   "products": [
     {
       "id": 1,
@@ -97,6 +178,7 @@
       "isActive": true
     }
   ],
+
   "healthItems": [
     {
       "id": 1,
@@ -118,6 +200,7 @@
       "description": "Within 30 seconds the pellet color reports status, giving owners clear simple decisions."
     }
   ],
+
   "whyPoints": [
     {
       "id": 1,
@@ -138,6 +221,7 @@
       "description": "End-to-end visible progress, product traceability, full lab testing reports on request."
     }
   ],
+
   "services": [
     {
       "id": 1,
@@ -176,6 +260,7 @@
       "description": "7.5kg to 25kg bags, additive, window, handle, double options. Custom labels supported."
     }
   ],
+
   "processSteps": [
     {
       "id": 1,
@@ -202,6 +287,7 @@
       "description": "Container delivery, customs documents, multi-port fast clearance."
     }
   ],
+
   "highlights": [
     {
       "id": 1,
@@ -234,6 +320,7 @@
       "description": "Dust below 3 percent, kind to the respiratory tract."
     }
   ],
+
   "testimonials": [
     {
       "id": 1,
@@ -263,6 +350,7 @@
       "avatarUrl": "https://images.pexels.com/photos/13081375/pexels-photo-13081375.jpeg?auto=compress&cs=tinysrgb&w=200"
     }
   ],
+
   "blogPosts": [
     {
       "id": 1,
@@ -295,5 +383,6 @@
       "publishDate": "2024-09-15"
     }
   ],
+
   "inquiries": []
 }
