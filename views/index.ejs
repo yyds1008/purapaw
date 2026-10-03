@@ -54,7 +54,9 @@
 <div class="hero-visual reveal">
 <div class="hero-card">
 <span class="tag"><i class="fa-solid fa-leaf"></i> <%= d.settings.heroPlantBasedTag %></span>
-<img src="<%= d.settings.heroImg %>" alt="cat litter">
+<video class="hero-card-video" autoplay muted loop playsinline preload="auto" poster="<%= d.settings.heroImg %>">
+  <source src="/videos/maison-du-chat-10s.mp4" type="video/mp4">
+</video>
 </div>
 <div class="hero-badge">
 <div class="ico"><i class="fa-solid fa-flask"></i></div>
